@@ -1,0 +1,28 @@
+<div>
+  <h2>Create your will below</h2>
+  <form name = "will" novalidate>
+    <div>
+      <label>Beneficiary: </label>
+      <input type='text' name = "bname" ng-model='beneficiary.name' required/>
+      <span class="error" ng-show="will.bname.$error.required">
+       Required!
+      </span>
+    </div>
+    <div>
+      <label>Verifier</label>
+      <input type='text' name = "name" ng-model='verifier.name' required/>
+      <span class="error" ng-show="will.vname.$error.required">
+       Required!
+      </span>
+    </div>
+    <div>
+      <label>Amount</label>
+      <input type='text' name = "amount" ng-model='amount' required/>
+      <span class="error" ng-show="will.amount.$error.required">
+       Required!
+      </span>
+    </div>
+    <button type='submit' class='btn-primary' ng-click = "validate()">Submit</button>
+    <!-- <button type = "reset" ng-click = "reset()">Reset</button> -->
+  </form>
+</div>
