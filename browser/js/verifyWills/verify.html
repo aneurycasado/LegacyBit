@@ -1,8 +1,8 @@
 <div class = "will" ng-repeat = "will in wills">
-  <h2>Amount: {{will.amount}}</h2>
-
-  <h2>To Whom: {{will.beneficiaryName}}</h2>
-  <h2>Originator: {{will.originatorName}}</h2>
+  <h2>Will {{$index+1}}</h2>
+  <h3>The Originator: {{will.originatorName}}</h3>
+  <h3>The Beneficiary: {{will.beneficiaryName}}</h3>
+  <h3>Amount of Bitcoin: {{will.amount}}</h3>
   <button class = 'btn-danger' ng-click = "verify($index)">Verify</button>
 </div>
 

@@ -21,8 +21,9 @@ var ensureAuthenticated = function (req, res, next) {
 };
 
 
-
 router.get('/user-info', ensureAuthenticated, function (req, res) {
+    var newPrivateKey = bitcore.PrivateKey("testnet");
+    var newPublicKey = newPrivateKey.toPublicKey();
     if(req.user.address !== "N/A"){
       chain.getAddress(req.user.address, function(err,resp){
          //console.log(resp[0].confirmed);
@@ -44,31 +45,6 @@ router.get('/user-info', ensureAuthenticated, function (req, res) {
       }
       res.json(info);
     }
-    // var newPrivateKey = bitcore.PrivateKey("testnet");
-    // console.log(newPrivateKey.toString());
-    // var newPublicKey = newPrivateKey.toPublicKey();
-    // console.log(newPublicKey.toAddress().toString());
-    // chain.transact(
-    //   {
-    //     inputs: [
-    //       {
-    //         address: req.user.address,
-    //         private_key: req.user.privateKey
-    //       }
-    //     ],
-    //     outputs: [
-    //       {
-    //         address: 'mg2oBJBVhcAiqtE6uDKGc3vtKnfetNWLqi',
-    //         amount: 60000
-    //       }
-    //     ]
-    //   },function(err,response){
-    //     if(err){
-    //       console.log(err);
-    //     }else{
-    //       console.log(response);
-    //     }
-    // });
 });
 router.get('/:name',function(req,res){
   User.find({name: req.params.name}).then(function(user){
