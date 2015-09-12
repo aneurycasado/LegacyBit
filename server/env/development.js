@@ -2,19 +2,19 @@ module.exports = {
   "DATABASE_URI": "mongodb://localhost:27017/fsg-app",
   "SESSION_SECRET": "Optimus Prime is my real dad",
   "TWITTER": {
-    "consumerKey": "INSERT_TWITTER_CONSUMER_KEY_HERE",
-    "consumerSecret": "INSERT_TWITTER_CONSUMER_SECRET_HERE",
-    "callbackUrl": "INSERT_TWITTER_CALLBACK_HERE"
+    "consumerKey": "Dxk4T6M8GrohyL36kA1LRhtfe",
+    "consumerSecret": "JuXitT77Fkv6cVyvpBJeSBoBmN8DZQOvM5IMucKka5kn7KHngx",
+    "callbackUrl": "http://192.168.1.8:1337/auth/twitter/callback"
   },
   "FACEBOOK": {
-    "clientID": "INSERT_FACEBOOK_CLIENTID_HERE",
-    "clientSecret": "INSERT_FACEBOOK_CLIENT_SECRET_HERE",
-    "callbackURL": "INSERT_FACEBOOK_CALLBACK_HERE"
+    "clientID": "459084384264457",
+    "clientSecret": "bcfe10c478c721571de98b167023ed87",
+    "callbackURL": "http://localhost:1337/auth/facebook/callback"
   },
   "GOOGLE": {
-    "clientID": "INSERT_GOOGLE_CLIENTID_HERE",
-    "clientSecret": "INSERT_GOOGLE_CLIENT_SECRET_HERE",
-    "callbackURL": "INSERT_GOOGLE_CALLBACK_HERE"
+    "clientID": "18279746287-lc6nkv3dfi53u8r8jih66mj2o2i19f3r.apps.googleusercontent.com",
+    "clientSecret": "XJWvQgPCJqYK5fPnRyeoPHpu",
+    "callbackURL": "http://localhost:1337/auth/google/callback"
   },
   "COINBASE": {
     "clientID": "44dc803ab92c1616feb2c3aea8adcbb161e7672b7c73d6c780460b185ae41d64",

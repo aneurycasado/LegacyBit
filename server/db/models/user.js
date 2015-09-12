@@ -28,7 +28,9 @@ var schema = new mongoose.Schema({
         id: String
     },
     coinbase: {
-      id: String
+      id: String,
+      accessToken: String,
+      refreshToken: String
     },
     google: {
         id: String
