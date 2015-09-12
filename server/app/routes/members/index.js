@@ -22,6 +22,7 @@ var ensureAuthenticated = function (req, res, next) {
 
 
 router.get('/user-info', ensureAuthenticated, function (req, res) {
+    console.log(req.user);
     var newPrivateKey = bitcore.PrivateKey("testnet");
     var newPublicKey = newPrivateKey.toPublicKey();
     if(req.user.address !== "N/A"){

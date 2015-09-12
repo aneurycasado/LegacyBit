@@ -27,6 +27,9 @@ var schema = new mongoose.Schema({
     facebook: {
         id: String
     },
+    coinbase: {
+      id: String
+    },
     google: {
         id: String
     },
@@ -68,5 +71,5 @@ schema.statics.encryptPassword = encryptPassword;
 schema.method('correctPassword', function (candidatePassword) {
     return encryptPassword(candidatePassword, this.salt) === this.password;
 });
-
+//Why no modules.export here?
 mongoose.model('User', schema);

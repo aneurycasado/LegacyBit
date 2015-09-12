@@ -13,6 +13,7 @@ require('./configure')(app);
 app.use('/api', require('./routes'));
 
 
+
 /*
  This middleware will catch any URLs resembling a file extension
  for example: .js, .html, .css
@@ -29,7 +30,7 @@ app.use(function (req, res, next) {
 
 });
 
-app.get('/*', function (req, res) {
+app.get('/', function (req, res) {
     res.sendFile(app.get('indexHTMLPath'));
 });
 

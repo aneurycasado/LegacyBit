@@ -1,5 +1,6 @@
 'use strict';
 var session = require('express-session');
+//What is a MongoStore?
 var MongoStore = require('connect-mongo')(session);
 var _ = require('lodash');
 var passport = require('passport');
@@ -12,6 +13,7 @@ var ENABLED_AUTH_STRATEGIES = [
     //'twitter',
     //'facebook',
     //'google'
+    'coinbase'
 ];
 
 module.exports = function (app) {
@@ -58,10 +60,10 @@ module.exports = function (app) {
         req.logout();
         res.status(200).end();
     });
-
     // Each strategy enabled gets registered.
     ENABLED_AUTH_STRATEGIES.forEach(function (strategyName) {
-        require(path.join(__dirname, strategyName))(app);
-    });
+      console.log(path.join(__dirname, strategyName));
+      require(path.join(__dirname, strategyName))(app);
+     });
 
 };

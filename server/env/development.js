@@ -15,5 +15,10 @@ module.exports = {
     "clientID": "INSERT_GOOGLE_CLIENTID_HERE",
     "clientSecret": "INSERT_GOOGLE_CLIENT_SECRET_HERE",
     "callbackURL": "INSERT_GOOGLE_CALLBACK_HERE"
+  },
+  "COINBASE": {
+    "clientID": "44dc803ab92c1616feb2c3aea8adcbb161e7672b7c73d6c780460b185ae41d64",
+    "clientSecret": "b9b48aafd23f605bb033a3f212ad487bdd0745acc91c9d0160cf86e13dd5161a",
+    "callbackURL": "http://192.168.1.8:1337/auth/coinbase/callback"
   }
 };

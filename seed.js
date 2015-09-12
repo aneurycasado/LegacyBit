@@ -51,12 +51,12 @@ var seedUsers = function () {
           name: 'Krillin'
         },
         {
-          email: 'we@help.com',
+          email: 'bill@gates.com',
           password: 'password',
           address: 'mj3vSVGP26iK38kpFGxtVyv2az22Zo39tW',
           privateKey: 'ebb13f907cf00d6d79257a267214a80e887905297307d12048ca00269a306770',
-          src: 'https://slack-files.com/files-tmb/T0905JLV6-F0ACMEMK2-1e5b9361ac/donor__720.jpg',
-          name: 'Us'
+          src: 'https://pbs.twimg.com/profile_images/558109954561679360/j1f9DiJi.jpeg',
+          name: 'Bill Gates'
         },
         {
           email: 'red@crescent.com',
@@ -73,7 +73,6 @@ var seedUsers = function () {
           privateKey: '8a5afe167b5d73fa8c63a7e21cfc0e6aae1d008ddb803b245e4408d2ccbd092e',
           src: 'https://slack-imgs.com/?url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fen%2F7%2F72%2FMetropk.jpg&width=400&height=300',
           name: 'Market'
-
         }
     ];
     return User.createAsync(users);

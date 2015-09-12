@@ -17,6 +17,7 @@ var logMiddleware = function (req, res, next) {
     next();
 };
 
+//What does app.setValue do here?
 module.exports = function (app) {
     app.setValue('env', env);
     app.setValue('projectRoot', rootPath);
