@@ -1,11 +1,14 @@
 <div class = "member">
-  <h1> Hello: {{userInfo.user.name}}</h1>
-  <img width = "500px" src = '{{userInfo.user.src}}'></img>
+  <h1> Hello: {{userInfo.name}}</h1>
+  <h1 ng-show = 'coinbase'>Coinbase User</h1>
+  <img width = "500px" src = '{{userInfo.src}}'></img>
   <h2> Here is your information concerning Bitcoin </h2>
-  <h3> Address: {{userInfo.user.address}}</h3>
-  <h3> Received: {{userInfo.received}}</h3>
-  <h3> Sent: {{userInfo.sent}}</h3>
-  <h3> Balance: {{userInfo.balance}}</h3>
+  <h3 ng-hide = 'coinbase'> Address: {{userInfo.user.address}}</h3>
+  <h3 ng-hide = 'coinbase'> Received: {{userInfo.received}}</h3>
+  <h3 ng-hide = 'coinbase'> Sent: {{userInfo.sent}}</h3>
+  <h3 ng-show = 'coinbase'> Email: {{userInfo.email}}</h3>
+  <h3 ng-show = 'coinbase'> # of Bitcoins: {{userInfo.bitCoinBalance}}</h3>
+  <h3 ng-show = 'coinbase'> Balance: ${{userInfo.usdBalance}}</h3>
   <button class = "btn-primary" ng-click = "goToWillCreation()">Create Will</button>
   <button class = "btn-primary" ng-click = "loadCurrentWills()">Current Wills</button>
   <button class = "btn-primary" ng-click = "loadVerifiyWills()">Verify Wills</buttons>

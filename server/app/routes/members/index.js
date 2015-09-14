@@ -24,20 +24,8 @@ var ensureAuthenticated = function (req, res, next) {
 router.get('/user-info', ensureAuthenticated, function (req, res) {
     if(req.user.coinbase !== undefined){
         res.json(req.user);
-    }else if(req.user.facebook){
-      console.log("Facebook");
-    }else if(req.user.google){
-      console.log("Google");
-    }else if(req.user.github){
-      console.log("Github");
-    }else if(req.user.twitter){
-      console.log("Twitter");
     }else{
-      var newPrivateKey = bitcore.PrivateKey("testnet");
-      var newPublicKey = newPrivateKey.toPublicKey();
-      if(req.user.address !== "N/A"){
         chain.getAddress(req.user.address, function(err,resp){
-           //console.log(resp[0].confirmed);
            req.user.balance = resp[0].confirmed.balance;
            req.user.received = resp[0].confirmed.received;
            req.user.sent = resp[0].confirmed.sent;
@@ -50,12 +38,6 @@ router.get('/user-info', ensureAuthenticated, function (req, res) {
            console.log(info);
            res.json(info);
         });
-      }else{
-        var info = {
-          user: req.user
-        }
-        res.json(info);
-      }
     }
 });
 router.get('/:name',function(req,res){

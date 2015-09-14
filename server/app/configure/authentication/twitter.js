@@ -4,7 +4,13 @@ var passport = require('passport');
 var TwitterStrategy = require('passport-twitter').Strategy;
 var mongoose = require('mongoose');
 var UserModel = mongoose.model('User');
-
+var bitcore = require('bitcore');
+var Chain = require('chain-node');
+var chain = new Chain({
+  keyId: '2f287deb0f8a9d951e6709403481743b',
+  keySecret: '3d90cf057bf0479080dd2978e6dd0066',
+  blockChain: 'testnet3'
+});
 module.exports = function (app) {
 
     var twitterConfig = app.getValue('env').TWITTER;
@@ -16,7 +22,11 @@ module.exports = function (app) {
     };
 
     var createNewUser = function (token, tokenSecret, profile) {
+        var newPrivateKey = bitcore.PrivateKey("testnet");
+        var newPublicKey = newPrivateKey.toPublicKey();
         return UserModel.create({
+            privateKey: newPrivateKey,
+            address: newPublicKey,
             twitter: {
                 id: profile.id,
                 username: profile.username,

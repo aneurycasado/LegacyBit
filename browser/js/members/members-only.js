@@ -1,14 +1,21 @@
 app.config(function ($stateProvider) {
-
     $stateProvider.state('membersOnly', {
         url: '/members-area',
-        template: '<h2>Cool</h2>',
-        controller: function ($scope, SecretStash) {
-            SecretStash.getStash().then(function (stash) {
-                console.log(SecretStash.goToWillCreation.toString());
-                $scope.stash = stash;
+        templateUrl: 'js/members/members.html',
+        controller: function controller($scope, $state, UserInfo) {
+            UserInfo.getSignedInUser().then(function (userInfo) {
+                console.log(userInfo);
+                $scope.userInfo = userInfo;
             });
-            $scope.goToWillCreation = SecretStash.goToWillCreation;
+            $scope.goToWillCreation = function(){
+              $state.go('createWill');
+            };
+            $scope.loadCurrentWills = function(){
+              $state.go('currentWills');
+            };
+            $scope.loadVerifiyWills = function(){
+              $state.go('verifyWills');
+            };
         },
         // The following data.authenticate is read by an event listener
         // that controls access to this state. Refer to app.js.
@@ -16,22 +23,4 @@ app.config(function ($stateProvider) {
             authenticate: true
         }
     });
-
-});
-
-app.factory('SecretStash', function ($http) {
-
-    var getStash = function () {
-        return $http.get('/api/members/secret-stash').then(function (response) {
-            return response.data;
-        });
-    };
-    var goToWillCreation = function(){
-      console.log('works');
-    };
-    return {
-        getStash: getStash,
-        goToWillCreation: goToWillCreation
-    };
-
 });

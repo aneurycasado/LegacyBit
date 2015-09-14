@@ -3,13 +3,7 @@ var path = require('path');
 var express = require('express');
 var app = express();
 module.exports = app;
-app.all('/*', function(req, res, next) {
-  console.log("hit all");
-  res.header("Access-Control-Allow-Origin", "http://192.168.1.8:1337");
-  res.header("Access-Control-Allow-Headers", "X-Requested-With");
-  res.header("Access-Control-Allow-Methods", "GET, POST","PUT");
-  next();
-});
+
 // Pass our express application pipeline into the configuration
 // function located at server/app/configure/index.js
 require('./configure')(app);
@@ -17,7 +11,6 @@ require('./configure')(app);
 // Routes that will be accessed via AJAX should be prepended with
 // /api so they are isolated from our GET /* wildcard.
 app.use('/api', require('./routes'));
-
 
 
 /*
